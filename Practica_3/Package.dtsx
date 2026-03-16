@@ -1,0 +1,2348 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/25/2026 8:31:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-9PJ76I7"
+  DTS:CreatorName="DESKTOP-9PJ76I7\USER"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{C87FD8AB-6DA5-48C4-856E-7B0966B339E4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{C78A47BB-C5E6-4F47-AA0D-96B8EC299D8F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{F8FCD8AC-BAE1-4515-9670-A69CC73BEBD3}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\Documents\C_SSIS\Proyecto_Practica\Ventas\Ventas.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4310F35B-9111-4ECD-B7C3-D89B9E76C7F9}"
+      DTS:ObjectName="Administrador de conexiones con Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\USER\Desktop\ERRORES.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Ventas_2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42897F8C-F6E6-43D4-8E2E-003C9103EE80}"
+      DTS:ObjectName="LocalHost.Ventas_2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Ventas_2;Provider=MSOLEDBSQL19.1;Integrated Security=SSPI;Application Name=SSIS-Package-{42897F8C-F6E6-43D4-8E2E-003C9103EE80}LocalHost.Ventas_2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED2BE4CD-EFB1-448A-ADB2-74478F3A72AF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Correo">
+      <DTS:VariableValue
+        DTS:DataType="8">estebangonzalezmeneses@gmail.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7AF1416F-FD59-4164-8B1A-2E3055C516EC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Nombre">
+      <DTS:VariableValue
+        DTS:DataType="8">Esteban</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F65C9DF2-9787-42F6-8855-E18FA04F53BC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Porcentaje_Error">
+      <DTS:VariableValue
+        DTS:DataType="14">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1602BD92-21A4-4CFA-8AEE-400A2BC607B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Registros_Error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{410240ED-8882-4AC3-8C93-BE0DBD0B31ED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Registros_Totales">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B44D9F2A-F443-4D72-B686-F19B18356B73}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Registros_Validos">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{39E92596-9893-408C-9C6F-E08E7988F577}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Ruta">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\USER\Documents\C_SSIS\Proyecto_Practica\Ventas\Ventas.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Actualizar Tabla Control de Carga"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{EF5FD508-2246-4A01-95C7-7127FB8C4B4D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Actualizar Tabla Control de Carga"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"INSERT INTO Control_Carga 
+SELECT GETDATE() ,'"+ @[User::Ruta] + "', "+ (DT_WSTR, 12) @[User::Registros_Totales]  +" , "+ (DT_WSTR, 12) @[User::Registros_Validos]   +" , "+ (DT_WSTR, 12)  @[User::Registros_Error]  +", "+ (DT_WSTR, 12)  @[User::Porcentaje_Error]  +" "</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42897F8C-F6E6-43D4-8E2E-003C9103EE80}"
+          SQLTask:SqlStatementSource="INSERT INTO Control_Carga &#xA;SELECT GETDATE() ,'C:\Users\USER\Documents\C_SSIS\Proyecto_Practica\Ventas\Ventas.xlsx', 0 , 0 , 0, 0 " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Actulizar Porcentaje Error"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{A81CA0E1-B27D-4F9A-8AF2-4864C963A0D1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Actulizar Porcentaje Error"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42897F8C-F6E6-43D4-8E2E-003C9103EE80}"
+          SQLTask:SqlStatementSource="UPDATE Control_Carga&#xA;SET PorcentajeError = &#xA;    CASE &#xA;        WHEN Registros_Totales = 0 THEN 0&#xA;        ELSE (Registros_Error * 100.0) / Registros_Totales&#xA;    END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Enviar Email"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Tarea Script"
+      DTS:DTSID="{4302A408-2487-47D1-8CCA-D1D27536C6E5}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Enviar Email"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_879174f6d19c46f6ac35aec32e4ed1e4"
+          VSTAMajorVersion="17"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::Correo,User::Nombre">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_879174f6d19c46f6ac35aec32e4ed1e4.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29C0C7AE-3B2A-4F11-8197-7AEEDB099377}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_879174f6d19c46f6ac35aec32e4ed1e4</RootNamespace>
+    <AssemblyName>ST_879174f6d19c46f6ac35aec32e4ed1e4</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST170</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Net;
+using System.Net.Mail;
+
+[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+{
+    public void Main()
+    {
+        string correo = Dts.Variables["Correo"].Value.ToString();
+        string nombre = Dts.Variables["Nombre"].Value.ToString();
+
+        string fromAddress = "estebitangonzalez.z@gmail.com";
+        string fromPassword = "xngb niqb ickb qzzx";
+
+        string subject = "Confirmación de ejecución de ETL";
+        string body = $"Hola {nombre},\n\nLa ejecución del ETL ha sido completada con éxito.";
+
+        try
+        {
+            using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
+            {
+                smtpClient.Credentials = new NetworkCredential(fromAddress, fromPassword);
+                smtpClient.EnableSsl = true;
+
+                using (MailMessage mailMessage = new MailMessage())
+                {
+                    mailMessage.From = new MailAddress(fromAddress);
+                    mailMessage.Subject = subject;
+                    mailMessage.Body = body;
+                    mailMessage.IsBodyHtml = false;
+
+                    mailMessage.To.Add(correo);
+
+                    smtpClient.Send(mailMessage);
+                }
+            }
+
+            bool fireAgain = true;
+            Dts.Events.FireInformation(0, "Script Task", $"Correo enviado exitosamente a {correo}", "", 0, ref fireAgain);
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+        catch (Exception ex)
+        {
+            Dts.Events.FireError(0, "Script Task", $"Error al enviar el correo: {ex.Message}", "", 0);
+            Dts.TaskResult = (int)ScriptResults.Failure;
+        }
+    }
+
+    enum ScriptResults
+    {
+        Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+        Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_879174f6d19c46f6ac35aec32e4ed1e4</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_879174f6d19c46f6ac35aec32e4ed1e4</msb:DisplayName>
+    <msb:ProjectId>{40A2C329-C203-421E-9EB7-953E8A70EF1F}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_879174f6d19c46f6ac35aec32e4ed1e4.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Settings.get_Default():ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Sett" +
+    "ings")]
+
+namespace ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_879174f6d19c46f6ac35aec32e4ed1e4")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_879174f6d19c46f6ac35aec32e4ed1e4")]
+[assembly: AssemblyCopyright("Copyright @  2026")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_879174f6d19c46f6ac35aec32e4ed1e4.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_879174f6d19c46f6ac35aec32e4ed1e4.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAOWprGkAAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAABjMA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAALQyAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAADBMAAAAgAAAAFAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAWAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADo
+MgAAAAAAAEgAAAACAAUAVCIAAKgPAAABAAAAAAAAAPwxAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswBwBlAQAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAoKAigQAAAKbxEAAApyDwAAcG8SAAAKbxMAAApvFAAACgtyHQAAcAxyWQAAcA1ygQAA
+cBMEcsMAAHAHcs8AAHAoFQAAChMFcjsBAHAgSwIAAHMWAAAKEwcRBwgJcxcAAApvGAAAChEHF28Z
+AAAKcxoAAAoTCBEICHMbAAAKbxwAAAoRCBEEbx0AAAoRCBEFbx4AAAoRCBZvHwAAChEIbyAAAAoG
+byEAAAoRBxEIbyIAAAreDBEILAcRCG8jAAAK3N4MEQcsBxEHbyMAAArcFxMGAigQAAAKbyQAAAoW
+clkBAHBycQEAcAYoJQAACnKvAQBwFhIGbyYAAAoCKBAAAAoWbycAAArePhMJAigQAAAKbyQAAAoW
+clkBAHBysQEAcBEJbygAAAooJQAACnKvAQBwFm8pAAAKJgIoEAAAChdvJwAACt4AKgAAAAEoAAAC
+AJMAP9IADAAAAAACAHYAauAADAAAAAAAAGUAwSYBPhEAAAEeAigqAAAKKh4CKCsAAAoqrn4BAAAE
+LR5y6QEAcNADAAACKCwAAApvLQAACnMuAAAKgAEAAAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMA
+AAQqHgIoLwAACioucwgAAAaAAwAABCoAAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUA
+bAAAAHAEAAAjfgAA3AQAAJwGAAAjU3RyaW5ncwAAAAB4CwAAXAIAACNVUwDUDQAAEAAAACNHVUlE
+AAAA5A0AAMQBAAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+gEzABYAAAEAAAAnAAAABQAAAAYA
+AAAJAAAAAQAAAC8AAAACAAAAEAAAAAEAAAACAAAAAwAAAAQAAAABAAAABAAAAAEAAAABAAAAAADM
+AwEAAAAAAAYAWgIXBQYA6QIXBQYApgEEBQ8AiwUAAAYA0wGABAYAPQKABAYAHgKABAYA0AKABAYA
+egKABAYAkwKABAYA6gGABAYABQIXAwoArgJZAwoAHQFZAw4AZQa8Aw4AgwC8AwYAqAQaBAYAKgQa
+BAYAiQEEBQYALAYaBAYAyQQ3BQYAuQRrBA4AWQGmAw4AugGmAw4AOQFWBAYAbgEXBQoAlANZAxIA
+zQXIABIAjwDIAAYAMwMaBA4AggM/Bg4AcAY/Bg4A+AW8Aw4AkgS8AwYAmAAaBAoA2QRZAwYA6AAa
+BAYApAAaBAYAkAaABAAAAAAlAAAAAAABAAEAAQAQADsEAAA5AAEAAQAAABAAPgWaBVEAAQADAAAB
+EADXBZoFZQADAAcAAwEAAAwGAABJAAQACgARAC8EyAARAA0BzAARAGcA0AAGBk0A1ABWgPAF1wBW
+gO0A1wBQIAAAAACGAEEEBgABAOwhAAAAAIYY9wQGAAEA9CEAAAAAgxj3BAYAAQD8IQAAAACTCMUE
+2wABACgiAAAAAJMI9QDgAAEALyIAAAAAkwgBAeUAAQA3IgAAAACWCEoG6wACAD4iAAAAAIYY9wQG
+AAIARiIAAAAAkRj9BPAAAgAAAAEAEQMJAPcEAQARAPcEBgAZAPcECgApAPcEEAAxAPcEEAA5APcE
+EABBAPcEEABJAPcEEABRAPcEEABZAPcEEABhAPcEEABpAPcEBgCZAPcEBgDBAPcEFQDRAPcEBgBx
+AAQGKwDZAMkFMADhABEENQDpAAcDOwChADEDPwDxACUGQwB5APcESgD5APcEUAB5AOAFVgB5AAME
+XQCBAPcEBgAJAfcEEACBACEEYgCBADMGEACBAIMGEACBAPQDXQCBALIEaQARAV4AEAB5AGIAbwAZ
+AVEBBgDZABoGdQDxACUGewAhAUYEgQDZAFYGAQCJAHcAPwAhAe0EjABxAPcEBgChAPcEBgApAbYA
+lQApAYwGngCpAPcEpADJAPcEBgAIABQAvgAIABgAwwApAHMAKwEuAAsAAwEuABMADAEuABsAKwEu
+ACMANAEuACsAXQEuADMAXQEuADsAXQEuAEMANAEuAEsAYwEuAFMAXQEuAFsAegFDAGMAwwBJAHMA
+KwFhAHsAwwBjAGsAwwAbAAMAAQAEAAMAAADJBPQAAAAVAfkAAABOBv4AAgAEAAMAAgAFAAUAAQAG
+AAUAAgAHAAcABIAAAAEAAABaJYp8AAAAAAAAAQAAAAQAAAAAAAAAAAAAAKwAVQAAAAAAEQAAAAAA
+AAAAAAAAtQA6AwAAAAAEAAAAAAAAAAAAAACsABoEAAAAABEAAAAAAAAAAAAAALUALgAAAAAAAAAA
+AAEAAABIBQAABQACAAAAAFNUXzg3OTE3NGY2ZDE5YzQ2ZjZhYzM1YWVjMzJlNGVkMWU0ADxNb2R1
+bGU+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuTWFuYWdlZERUUwB2YWx1ZV9fAG1zY29ybGliAEFkZABT
+ZW5kAGRlZmF1bHRJbnN0YW5jZQBnZXRfTWVzc2FnZQBNYWlsTWVzc2FnZQBWYXJpYWJsZQBJRGlz
+cG9zYWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBNaWNyb3NvZnQuU3Fs
+U2VydmVyLkR0cy5SdW50aW1lAFR5cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQBy
+ZXNvdXJjZUN1bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAEFwcGxpY2F0aW9uU2V0
+dGluZ3NCYXNlAERpc3Bvc2UARWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRB
+dHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRl
+AEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5
+VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZp
+Z3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlv
+blJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNv
+cHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1i
+bHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1
+ZQB2YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRUYXNr
+AE5ldHdvcmtDcmVkZW50aWFsAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bABTeXN0ZW0uTmV0Lk1haWwAU1RfODc5MTc0ZjZkMTljNDZmNmFjMzVhZWMzMmU0ZWQxZTQuZGxs
+AHNldF9Jc0JvZHlIdG1sAHNldF9FbmFibGVTc2wAZ2V0X0l0ZW0AU3lzdGVtAHNldF9Gcm9tAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBGaXJlSW5mb3JtYXRpb24AU3lzdGVtLkNvbmZpZ3Vy
+YXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24ATWFpbEFkZHJlc3ND
+b2xsZWN0aW9uAEV4Y2VwdGlvbgBnZXRfVG8AQ3VsdHVyZUluZm8AZ2V0X1Jlc291cmNlTWFuYWdl
+cgBFdmVudHNPYmplY3RXcmFwcGVyAEZpcmVFcnJvcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdu
+b3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBT
+VF84NzkxNzRmNmQxOWM0NmY2YWMzNWFlYzMyZTRlZDFlNC5Qcm9wZXJ0aWVzLlJlc291cmNlcy5y
+ZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU1RfODc5MTc0ZjZkMTljNDZmNmFjMzVhZWMzMmU0ZWQx
+ZTQuUHJvcGVydGllcwBnZXRfVmFyaWFibGVzAFNldHRpbmdzAHNldF9DcmVkZW50aWFscwBTdWNj
+ZXNzAE1haWxBZGRyZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0cwBnZXRfRXZlbnRzAENvbmNhdABP
+YmplY3QAc2V0X1N1YmplY3QAU3lzdGVtLk5ldABnZXRfRGVmYXVsdABzZXRfVGFza1Jlc3VsdABT
+bXRwQ2xpZW50AElDcmVkZW50aWFsc0J5SG9zdABzZXRfQm9keQBnZXRfQXNzZW1ibHkAAAAAAA1D
+AG8AcgByAGUAbwAADU4AbwBtAGIAcgBlAAA7ZQBzAHQAZQBiAGkAdABhAG4AZwBvAG4AegBhAGwA
+ZQB6AC4AegBAAGcAbQBhAGkAbAAuAGMAbwBtAAAneABuAGcAYgAgAG4AaQBxAGIAIABpAGMAawBi
+ACAAcQB6AHoAeAAAQUMAbwBuAGYAaQByAG0AYQBjAGkA8wBuACAAZABlACAAZQBqAGUAYwB1AGMA
+aQDzAG4AIABkAGUAIABFAFQATAABC0gAbwBsAGEAIAAAaywACgAKAEwAYQAgAGUAagBlAGMAdQBj
+AGkA8wBuACAAZABlAGwAIABFAFQATAAgAGgAYQAgAHMAaQBkAG8AIABjAG8AbQBwAGwAZQB0AGEA
+ZABhACAAYwBvAG4AIADpAHgAaQB0AG8ALgABHXMAbQB0AHAALgBnAG0AYQBpAGwALgBjAG8AbQAA
+F1MAYwByAGkAcAB0ACAAVABhAHMAawAAPUMAbwByAHIAZQBvACAAZQBuAHYAaQBhAGQAbwAgAGUA
+eABpAHQAbwBzAGEAbQBlAG4AdABlACAAYQAgAAABADdFAHIAcgBvAHIAIABhAGwAIABlAG4AdgBp
+AGEAcgAgAGUAbAAgAGMAbwByAHIAZQBvADoAIAAAcVMAVABfADgANwA5ADEANwA0AGYANgBkADEA
+OQBjADQANgBmADYAYQBjADMANQBhAGUAYwAzADIAZQA0AGUAZAAxAGUANAAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAC7OLAs8XXFGj6HHBfiJJXkABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEV0PBwoODg4ODg4CEj0SQRJFBCAAEm0EIAAScQUgARJ1HAMgABwDIAAO
+BgADDg4ODgUgAgEOCAUgAgEODgYgAQESgIEEIAEBAgYgAQESgIUFIAASgIkFIAEBEkEFIAASgJEF
+AAIODg4KIAYBCA4ODggQAgggBQIIDg4OCAgAARKAlRGAmQUgABKAnQcgAgEOEoCdCLd6XFYZNOCJ
+CImEXc2AgMyRBAAAAAAEAQAAAAMGElUDBhJZAwYSEAIGCAMGERQEAAASVQQAABJZBQABARJZBAAA
+EhADAAABBAgAElUECAASWQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhy
+b3dzAQgBAAIAAAAAACgBACNTVF84NzkxNzRmNmQxOWM0NmY2YWMzNWFlYzMyZTRlZDFlNAAABQEA
+AAAAFgEAEUNvcHlyaWdodCBAICAyMDI2AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcB
+AFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuN7QAAADOyu++AQAAAJEA
+AABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4w
+LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5
+c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAADc
+MgAAAAAAAAAAAAD2MgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6DIAAAAAAAAAAAAAAABfQ29y
+RGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAA
+SAAAAFhAAAAaBAAAAAAAAAAAAAAaBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAA
+AAAAvQTv/gAAAQAAAAEAinxaJQAAAQCKfFolPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
+AAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBu
+AAAAAAAAALAEegMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAVgMAAAEAMAAwADAA
+MAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBu
+AHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAA
+AABTAFQAXwA4ADcAOQAxADcANABmADYAZAAxADkAYwA0ADYAZgA2AGEAYwAzADUAYQBlAGMAMwAy
+AGUANABlAGQAMQBlADQAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4A
+OQA1ADYAMgAuADMAMQA4ADgAMgAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABT
+AFQAXwA4ADcAOQAxADcANABmADYAZAAxADkAYwA0ADYAZgA2AGEAYwAzADUAYQBlAGMAMwAyAGUA
+NABlAGQAMQBlADQALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAA
+AEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADIANgAAACoAAQABAEwAZQBnAGEAbABUAHIA
+YQBkAGUAbQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBh
+AG0AZQAAAFMAVABfADgANwA5ADEANwA0AGYANgBkADEAOQBjADQANgBmADYAYQBjADMANQBhAGUA
+YwAzADIAZQA0AGUAZAAxAGUANAAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBl
+AAAAAABTAFQAXwA4ADcAOQAxADcANABmADYAZAAxADkAYwA0ADYAZgA2AGEAYwAzADUAYQBlAGMA
+MwAyAGUANABlAGQAMQBlADQAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAx
+AC4AMAAuADkANQA2ADIALgAzADEAOAA4ADIAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYA
+ZQByAHMAaQBvAG4AAAAxAC4AMAAuADkANQA2ADIALgAzADEAOAA4ADIAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAACDMAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{CFA1EB1B-CB82-455E-B2DB-348B53966A50}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL\Agregar Columna"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Agregar Columna"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada].Columns[Cantidad Vendida]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]" />
+                    <inputColumn
+                      refId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]"
+                      name="Cantidad Vendida"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]} * #{Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Precio Unitario] * [Cantidad Vendida]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Agregar Columna.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Agregar Columna.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Agregar Columna.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Destino DB Ventas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino DB Ventas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Destino DB Ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Ventas_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Ventas_2]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[ID Venta]"
+                      cachedDataType="r8"
+                      cachedName="ID Venta"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Venta]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[Fecha]"
+                      cachedDataType="r8"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[ID Producto]"
+                      cachedDataType="r8"
+                      cachedName="ID Producto"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Producto]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Precio Unitario]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[ID Cliente]"
+                      cachedDataType="r8"
+                      cachedName="ID Cliente"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Cliente]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Cliente]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[ID Región]"
+                      cachedDataType="r8"
+                      cachedName="ID Región"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Región]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Región]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[Cantidad Vendida]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad Vendida]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].Columns[Cantidad Vendida1]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      externalMetadataColumnId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total_ventas]"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Venta]"
+                      dataType="i4"
+                      name="ID Venta" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      dataType="dbDate"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Producto]"
+                      dataType="i4"
+                      name="ID Producto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad Vendida]"
+                      dataType="i4"
+                      name="Cantidad Vendida" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Precio Unitario]"
+                      dataType="r8"
+                      name="Precio Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Cliente]"
+                      dataType="i4"
+                      name="ID Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Región]"
+                      dataType="i4"
+                      name="ID Región" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total_ventas]"
+                      dataType="r8"
+                      name="Total_ventas" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Destino DB Ventas.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Destino DB Ventas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destino DB Ventas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Destino DB Ventas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destino DB Ventas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Destino Filas con Errores"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino Filas con Errores"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Ventas_Errores]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Destino Filas con Errores.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Ventas_2]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Ventas_2]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[ID Venta]"
+                      cachedDataType="r8"
+                      cachedName="ID Venta"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Venta]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[Fecha]"
+                      cachedDataType="r8"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[ID Producto]"
+                      cachedDataType="r8"
+                      cachedName="ID Producto"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Producto]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Precio Unitario]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[ID Cliente]"
+                      cachedDataType="r8"
+                      cachedName="ID Cliente"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Cliente]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Cliente]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[ID Región]"
+                      cachedDataType="r8"
+                      cachedName="ID Región"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Región]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Región]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[Cantidad Vendida]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad Vendida]"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]" />
+                    <inputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].Columns[Cantidad Vendida1]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      externalMetadataColumnId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total_ventas]"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Venta]"
+                      dataType="i4"
+                      name="ID Venta" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha]"
+                      dataType="dbDate"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Producto]"
+                      dataType="i4"
+                      name="ID Producto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cantidad Vendida]"
+                      dataType="i4"
+                      name="Cantidad Vendida" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Precio Unitario]"
+                      dataType="r8"
+                      name="Precio Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Cliente]"
+                      dataType="i4"
+                      name="ID Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID Región]"
+                      dataType="i4"
+                      name="ID Región" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB].ExternalColumns[Total_ventas]"
+                      dataType="r8"
+                      name="Total_ventas" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Destino Filas con Errores.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destino Filas con Errores.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Destino Filas con Errores.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destino Filas con Errores.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\División condicional.Inputs[Entrada de división condicional].Columns[ID Venta]"
+                      cachedDataType="r8"
+                      cachedName="ID Venta"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]" />
+                    <inputColumn
+                      refId="Package\ETL\División condicional.Inputs[Entrada de división condicional].Columns[ID Producto]"
+                      cachedDataType="r8"
+                      cachedName="ID Producto"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]" />
+                    <inputColumn
+                      refId="Package\ETL\División condicional.Inputs[Entrada de división condicional].Columns[Cantidad Vendida]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      lineageId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\División condicional.Outputs[Errores]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Errores"
+                  synchronousInputId="Package\ETL\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]}) || [ISNULL](#{Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]}) || #{Package\ETL\Agregar Columna.Outputs[Salida de columna derivada].Columns[Cantidad Vendida]} &lt;= 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL([ID Venta]) || ISNULL([ID Producto]) || [Cantidad Vendida] &lt;= 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\ETL\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\ETL\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[ID Venta]"
+                      cachedDataType="r8"
+                      cachedName="ID Venta"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Venta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[Fecha]"
+                      cachedDataType="r8"
+                      cachedName="Fecha"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[ID Producto]"
+                      cachedDataType="r8"
+                      cachedName="ID Producto"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Producto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[Cantidad Vendida]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad Vendida"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cantidad Vendida]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[Precio Unitario]"
+                      cachedDataType="r8"
+                      cachedName="Precio Unitario"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Precio Unitario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[ID Cliente]"
+                      cachedDataType="r8"
+                      cachedName="ID Cliente"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Cliente]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Ordenar.Inputs[Entrada de ordenación].Columns[ID Región]"
+                      cachedDataType="r8"
+                      cachedName="ID Región"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Región]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Venta]"
+                      name="ID Venta"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Venta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Fecha]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Fecha]"
+                      name="Fecha">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Producto]"
+                      name="ID Producto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Producto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Cantidad Vendida]"
+                      name="Cantidad Vendida">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cantidad Vendida]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[Precio Unitario]"
+                      name="Precio Unitario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Precio Unitario]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Cliente]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Cliente]"
+                      name="ID Cliente">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Cliente]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Región]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Ordenar.Outputs[Salida de ordenación].Columns[ID Región]"
+                      name="ID Región">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Región]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Ventas$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Venta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Venta]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Venta]"
+                      name="ID Venta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Producto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Producto]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Producto]"
+                      name="ID Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cantidad Vendida]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad Vendida]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cantidad Vendida]"
+                      name="Cantidad Vendida"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Precio Unitario]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Precio Unitario]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Precio Unitario]"
+                      name="Precio Unitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Cliente]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Cliente]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Cliente]"
+                      name="ID Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Región]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Región]"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ID Región]"
+                      name="ID Región"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Venta]"
+                      dataType="r8"
+                      name="ID Venta" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Fecha]"
+                      dataType="date"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Producto]"
+                      dataType="r8"
+                      name="ID Producto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cantidad Vendida]"
+                      dataType="r8"
+                      name="Cantidad Vendida" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Precio Unitario]"
+                      dataType="r8"
+                      name="Precio Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Cliente]"
+                      dataType="r8"
+                      name="ID Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ID Región]"
+                      dataType="r8"
+                      name="ID Región" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Venta]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Venta]"
+                      name="ID Venta" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha]"
+                      dataType="date"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Fecha]"
+                      name="Fecha" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Producto]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Producto]"
+                      name="ID Producto" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Cantidad Vendida]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Cantidad Vendida]"
+                      name="Cantidad Vendida" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Precio Unitario]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Precio Unitario]"
+                      name="Precio Unitario" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Cliente]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Cliente]"
+                      name="ID Cliente" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Región]"
+                      dataType="r8"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ID Región]"
+                      name="ID Región" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Recuento de filas Errores"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Recuento de filas;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Cuenta las filas a medida que pasan por un flujo de datos. Por ejemplo, se usa el número de filas procesadas para determinar si deben o no realizarse operaciones de limpieza o actualizar el texto de un mensaje de correo electrónico para comunicar el estado de procesamiento."
+              name="Recuento de filas Errores">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el recuento de filas."
+                  name="VariableName">User::Registros_Error</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Recuento de filas Errores.Inputs[Entrada de Recuento de filas 1]"
+                  hasSideEffects="true"
+                  name="Entrada de Recuento de filas 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Recuento de filas Errores.Outputs[Salida de Recuento de filas 1]"
+                  name="Salida de Recuento de filas 1"
+                  synchronousInputId="Package\ETL\Recuento de filas Errores.Inputs[Entrada de Recuento de filas 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Recuento de filas Validas"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Recuento de filas;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Cuenta las filas a medida que pasan por un flujo de datos. Por ejemplo, se usa el número de filas procesadas para determinar si deben o no realizarse operaciones de limpieza o actualizar el texto de un mensaje de correo electrónico para comunicar el estado de procesamiento."
+              name="Recuento de filas Validas">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el recuento de filas."
+                  name="VariableName">User::Registros_Validos</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Recuento de filas Validas.Inputs[Entrada de Recuento de filas 1]"
+                  hasSideEffects="true"
+                  name="Entrada de Recuento de filas 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Recuento de filas Validas.Outputs[Salida de Recuento de filas 1]"
+                  name="Salida de Recuento de filas 1"
+                  synchronousInputId="Package\ETL\Recuento de filas Validas.Inputs[Entrada de Recuento de filas 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Recuento Total Filas"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Recuento de filas;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Cuenta las filas a medida que pasan por un flujo de datos. Por ejemplo, se usa el número de filas procesadas para determinar si deben o no realizarse operaciones de limpieza o actualizar el texto de un mensaje de correo electrónico para comunicar el estado de procesamiento."
+              name="Recuento Total Filas">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el recuento de filas."
+                  name="VariableName">User::Registros_Totales</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Recuento Total Filas.Inputs[Entrada de Recuento de filas 1]"
+                  hasSideEffects="true"
+                  name="Entrada de Recuento de filas 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Recuento Total Filas.Outputs[Salida de Recuento de filas 1]"
+                  name="Salida de Recuento de filas 1"
+                  synchronousInputId="Package\ETL\Recuento Total Filas.Inputs[Entrada de Recuento de filas 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL.Paths[Errores]"
+              endId="Package\ETL\Recuento de filas Errores.Inputs[Entrada de Recuento de filas 1]"
+              name="Errores"
+              startId="Package\ETL\División condicional.Outputs[Errores]" />
+            <path
+              refId="Package\ETL.Paths[Salida de columna derivada]"
+              endId="Package\ETL\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\ETL\Agregar Columna.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\ETL.Paths[Salida de ordenación]"
+              endId="Package\ETL\Agregar Columna.Inputs[Entrada de columna derivada]"
+              name="Salida de ordenación"
+              startId="Package\ETL\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\ETL.Paths[Salida de origen de Excel]"
+              endId="Package\ETL\Recuento Total Filas.Inputs[Entrada de Recuento de filas 1]"
+              name="Salida de origen de Excel"
+              startId="Package\ETL\Origen de Excel.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\ETL.Paths[Salida de Recuento de filas 1]"
+              endId="Package\ETL\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de Recuento de filas 1"
+              startId="Package\ETL\Recuento Total Filas.Outputs[Salida de Recuento de filas 1]" />
+            <path
+              refId="Package\ETL.Paths[Salida de Recuento de filas 11]"
+              endId="Package\ETL\Destino DB Ventas.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de Recuento de filas 1"
+              startId="Package\ETL\Recuento de filas Validas.Outputs[Salida de Recuento de filas 1]" />
+            <path
+              refId="Package\ETL.Paths[Salida de Recuento de filas 12]"
+              endId="Package\ETL\Destino Filas con Errores.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de Recuento de filas 1"
+              startId="Package\ETL\Recuento de filas Errores.Outputs[Salida de Recuento de filas 1]" />
+            <path
+              refId="Package\ETL.Paths[Salida predeterminada de división condicional]"
+              endId="Package\ETL\Recuento de filas Validas.Inputs[Entrada de Recuento de filas 1]"
+              name="Salida predeterminada de división condicional"
+              startId="Package\ETL\División condicional.Outputs[Salida predeterminada de división condicional]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar DB"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2502E286-D4A6-4CB5-8DCC-D6C203B2E9C5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar DB"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42897F8C-F6E6-43D4-8E2E-003C9103EE80}"
+          SQLTask:SqlStatementSource=" TRUNCATE TABLE Ventas&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{59FE5683-74A9-4D94-B9DA-8F61DDAAA3C8}"
+      DTS:From="Package\ETL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Actualizar Tabla Control de Carga" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F494073A-F0BB-4DE8-BB63-C345C20D223C}"
+      DTS:From="Package\Limpiar DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\ETL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D30AB5E9-A2C1-43ED-877E-A441B0FB1A4D}"
+      DTS:From="Package\Actualizar Tabla Control de Carga"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Actulizar Porcentaje Error" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B927A3BD-7A51-4622-BFBF-6BCC1CBBD6A5}"
+      DTS:From="Package\Actulizar Porcentaje Error"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Enviar Email" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="244,42"
+          Id="Package\Actualizar Tabla Control de Carga"
+          TopLeft="442,166" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Actulizar Porcentaje Error"
+          TopLeft="463,242" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Enviar Email"
+          TopLeft="502,325" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Limpiar DB"
+          TopLeft="501,6" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\ETL"
+          TopLeft="521,86" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="567.25,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="569,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="564.5,208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="568.75,284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\ETL\Origen de Excel"
+          TopLeft="173,62" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\ETL\Destino DB Ventas"
+          TopLeft="466,348" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\ETL\Destino Filas con Errores"
+          TopLeft="725,299" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\ETL\División condicional"
+          TopLeft="490.5,146.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\ETL\Recuento de filas Validas"
+          TopLeft="444,260" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\ETL\Ordenar"
+          TopLeft="567,63" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\ETL\Recuento Total Filas"
+          TopLeft="360,61" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ETL\Agregar Columna"
+          TopLeft="735,63" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\ETL\Recuento de filas Errores"
+          TopLeft="718,230" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida predeterminada de división condicional]"
+          TopLeft="548,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.5"
+              Start="0,0"
+              End="0,64">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.92279296875,25.90234375,201.8455859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de Recuento de filas 12]"
+          TopLeft="822.75,272">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de Recuento de filas 11]"
+          TopLeft="548.75,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de Recuento de filas 1]"
+          TopLeft="540,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,0"
+              Start="0,0"
+              End="19.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de origen de Excel]"
+          TopLeft="330,82.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,0"
+              Start="0,0"
+              End="22.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de ordenación]"
+          TopLeft="686,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,0"
+              Start="0,0"
+              End="41.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de columna derivada]"
+          TopLeft="817.5,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239,41.5"
+              Start="0,0"
+              End="-239,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.75"
+                    Point2="0,20.75"
+                    Point3="-4,20.75" />
+                  <mssgle:LineSegment
+                    End="-235,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235,20.75"
+                    Point2="-239,20.75"
+                    Point3="-239,24.75" />
+                  <mssgle:LineSegment
+                    End="-239,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Errores]"
+          TopLeft="606.5,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="213,41.5"
+              Start="0,0"
+              End="213,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8243243243243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8243243243243"
+                    Point2="0,16.8243243243243"
+                    Point3="4,16.8243243243243" />
+                  <mssgle:LineSegment
+                    End="209,16.8243243243243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="209,16.8243243243243"
+                    Point2="213,16.8243243243243"
+                    Point3="213,20.8243243243243" />
+                  <mssgle:LineSegment
+                    End="213,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="90.182421875,21.8243243243243,32.63515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Destino DB Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Destino Filas con Errores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
